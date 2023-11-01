@@ -57,5 +57,10 @@ int main() {
 	}
 	findMagazinesByPublisher(magazines_dynamic, 4, publisher_name2);
 	_getch();
+	free(author_dynamic);
+	free(genre_dynamic);
+	free(publisher_dynamic);
+	free(books_dynamic);
+	free(magazines_dynamic);
 	return 0;
 }
