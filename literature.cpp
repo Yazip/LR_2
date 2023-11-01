@@ -3,171 +3,171 @@
 #include <iostream>
 #include <Windows.h>
 #include <string.h>
-// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р°РІС‚РѕСЂР°
+// Функция создания автора
 void createAuthor(Author* author) {
-	// Р’РІРѕРґ С„Р°РјРёР»РёРё Р°РІС‚РѕСЂР°
+	// Ввод фамилии автора
 	do {
-		puts("\nР’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ Р°РІС‚РѕСЂР° (РЅРµ Р±РѕР»РµРµ 20 СЃРёРјРІРѕР»РѕРІ):");
+		puts("\nВведите фамилию автора (не более 20 символов):");
 		fgets((*author).last_name, 22, stdin);
 	} while (strlen((*author).last_name) < 2);
 	(*author).last_name[strlen((*author).last_name) - 1] = '\0';
-	// Р’РІРѕРґ РёРЅРёС†РёР°Р»РѕРІ Р°РІС‚РѕСЂР°
+	// Ввод инициалов автора
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РёРЅРёС†РёР°Р»С‹ Р°РІС‚РѕСЂР° (РЅРµ Р±РѕР»РµРµ 4 СЃРёРјРІРѕР»РѕРІ):");
+		puts("Введите инициалы автора (не более 4 символов):");
 		fgets((*author).initials, 6, stdin);
 	} while (strlen((*author).initials) < 3);
 	(*author).initials[strlen((*author).initials) - 1] = '\0';
-	// Р’РІРѕРґ Р±РёРѕРіСЂР°С„РёРё Р°РІС‚РѕСЂР°
+	// Ввод биографии автора
 	do {
-		puts("Р’РІРµРґРёС‚Рµ Р±РёРѕРіСЂР°С„РёСЋ Р°РІС‚РѕСЂР° (РЅРµ Р±РѕР»РµРµ 300 СЃРёРјРІРѕР»РѕРІ, РѕРґРЅРѕР№ СЃС‚СЂРѕРєРѕР№):");
+		puts("Введите биографию автора (не более 300 символов, одной строкой):");
 		fgets((*author).biography, 302, stdin);
 	} while (strlen((*author).biography) < 2);
 	(*author).biography[strlen((*author).biography) - 1] = '\0';
-	// РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃРѕР·РґР°РЅРёРё Р°РІС‚РѕСЂР°
-	printf("\nРђРІС‚РѕСЂ %s %s Р±С‹Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!\n", (*author).last_name, (*author).initials);
+	// Сообщение о создании автора
+	printf("\nАвтор %s %s был успешно создан!\n", (*author).last_name, (*author).initials);
 }
-// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё РѕР± Р°РІС‚РѕСЂРµ
+// Функция вывода информации об авторе
 void printAuthorInfo(Author author) {
-	puts("\nРРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РІС‚РѕСЂРµ:");
-	printf("Р¤Р°РјРёР»РёСЏ: %s\n", author.last_name);
-	printf("РРЅРёС†РёР°Р»С‹: %s\n", author.initials);
-	printf("Р‘РёРѕРіСЂР°С„РёСЏ: %s\n", author.biography);
+	puts("\nИнформация об авторе:");
+	printf("Фамилия: %s\n", author.last_name);
+	printf("Инициалы: %s\n", author.initials);
+	printf("Биография: %s\n", author.biography);
 }
-// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р¶Р°РЅСЂР°
+// Функция создания жанра
 void createGenre(Genre* genre) {
-	// Р’РІРѕРґ РЅР°Р·РІР°РЅРёСЏ Р¶Р°РЅСЂР°
+	// Ввод названия жанра
 	do {
-		puts("\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р¶Р°РЅСЂР° (РЅРµ Р±РѕР»РµРµ 20 СЃРёРјРІРѕР»РѕРІ):");
-		fgets((*genre).name, 22, stdin);
+		puts("\nВведите название жанра (не более 40 символов):");
+		fgets((*genre).name, 42, stdin);
 	} while (strlen((*genre).name) < 2);
 	(*genre).name[strlen((*genre).name) - 1] = '\0';
-	// Р’РІРѕРґ РѕРїРёСЃР°РЅРёСЏ Р¶Р°РЅСЂР°
+	// Ввод описания жанра
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РѕРїРёСЃР°РЅРёРµ Р¶Р°РЅСЂР° (РЅРµ Р±РѕР»РµРµ 300 СЃРёРјРІРѕР»РѕРІ, РѕРґРЅРѕР№ СЃС‚СЂРѕРєРѕР№):");
+		puts("Введите описание жанра (не более 300 символов, одной строкой):");
 		fgets((*genre).description, 302, stdin);
 	} while (strlen((*genre).description) < 2);
 	(*genre).description[strlen((*genre).description) - 1] = '\0';
-	// РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃРѕР·РґР°РЅРёРё Р¶Р°РЅСЂР°
-	printf("\nР–Р°РЅСЂ \"%s\" Р±С‹Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!\n", (*genre).name);
+	// Сообщение о создании жанра
+	printf("\nЖанр \"%s\" был успешно создан!\n", (*genre).name);
 }
-// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р¶Р°РЅСЂРµ
+// Функция вывода информации о жанре
 void printGenreInfo(Genre genre) {
-	puts("\nРРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р¶Р°РЅСЂРµ:");
-	printf("РќР°Р·РІР°РЅРёРµ: %s\n", genre.name);
-	printf("РћРїРёСЃР°РЅРёРµ: %s\n", genre.description);
+	puts("\nИнформация о жанре:");
+	printf("Название: %s\n", genre.name);
+	printf("Описание: %s\n", genre.description);
 }
-// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РёР·РґР°С‚РµР»СЏ
+// Функция создания издателя
 void createPublisher(Publisher* publisher) {
-	// Р’РІРѕРґ РЅР°Р·РІР°РЅРёСЏ РёР·РґР°С‚РµР»СЏ
+	// Ввод названия издателя
 	do {
-		puts("\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РёР·РґР°С‚РµР»СЏ (РЅРµ Р±РѕР»РµРµ 30 СЃРёРјРІРѕР»РѕРІ):");
+		puts("\nВведите название издателя (не более 30 символов):");
 		fgets((*publisher).name, 32, stdin);
 	} while (strlen((*publisher).name) < 2);
 	(*publisher).name[strlen((*publisher).name) - 1] = '\0';
-	// Р’РІРѕРґ Р°РґСЂРµСЃР° РёР·РґР°С‚РµР»СЏ
+	// Ввод адреса издателя
 	do {
-		puts("Р’РІРµРґРёС‚Рµ Р°РґСЂРµСЃ РёР·РґР°С‚РµР»СЏ (РЅРµ Р±РѕР»РµРµ 50 СЃРёРјРІРѕР»РѕРІ):");
-		fgets((*publisher).address, 52, stdin);
+		puts("Введите адрес издателя (не более 100 символов):");
+		fgets((*publisher).address, 102, stdin);
 	} while (strlen((*publisher).address) < 2);
 	(*publisher).address[strlen((*publisher).address) - 1] = '\0';
-	// Р’РІРѕРґ РЅРѕРјРµСЂР° С‚РµР»РµС„РѕРЅР° РёР·РґР°С‚РµР»СЏ
+	// Ввод номера телефона издателя
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РёР·РґР°С‚РµР»СЏ (РЅРµ Р±РѕР»РµРµ 20 СЃРёРјРІРѕР»РѕРІ):");
+		puts("Введите номер телефона издателя (не более 20 символов):");
 		fgets((*publisher).phone_num, 22, stdin);
 	} while (strlen((*publisher).phone_num) < 2);
 	(*publisher).phone_num[strlen((*publisher).phone_num) - 1] = '\0';
-	// Р’РІРѕРґ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹ РёР·РґР°С‚РµР»СЏ
+	// Ввод электронной почты издателя
 	do {
-		puts("Р’РІРµРґРёС‚Рµ СЌР»РµРєС‚СЂРѕРЅРЅСѓСЋ РїРѕС‡С‚Сѓ РёР·РґР°С‚РµР»СЏ (РЅРµ Р±РѕР»РµРµ 40 СЃРёРјРІРѕР»РѕРІ):");
+		puts("Введите электронную почту издателя (не более 40 символов):");
 		fgets((*publisher).email, 42, stdin);
 	} while (strlen((*publisher).email) < 2);
 	(*publisher).email[strlen((*publisher).email) - 1] = '\0';
-	// РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃРѕР·РґР°РЅРёРё РёР·РґР°С‚РµР»СЏ
-	printf("\nРР·РґР°С‚РµР»СЊ \"%s\" Р±С‹Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!\n", (*publisher).name);
+	// Сообщение о создании издателя
+	printf("\nИздатель \"%s\" был успешно создан!\n", (*publisher).name);
 }
-// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё РѕР± РёР·РґР°С‚РµР»Рµ
+// Функция вывода информации об издателе
 void printPublisherInfo(Publisher publisher) {
-	puts("\nРРЅС„РѕСЂРјР°С†РёСЏ РѕР± РёР·РґР°С‚РµР»Рµ:");
-	printf("РќР°Р·РІР°РЅРёРµ: %s\n", publisher.name);
-	printf("РђРґСЂРµСЃ: %s\n", publisher.address);
-	printf("РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: %s\n", publisher.phone_num);
-	printf("Р­Р»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°: %s\n", publisher.email);
+	puts("\nИнформация об издателе:");
+	printf("Название: %s\n", publisher.name);
+	printf("Адрес: %s\n", publisher.address);
+	printf("Номер телефона: %s\n", publisher.phone_num);
+	printf("Электронная почта: %s\n", publisher.email);
 }
-// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РєРЅРёРіРё
+// Функция создания книги
 void createBook(Book* book) {
-	// Р’РІРѕРґ С„Р°РјРёР»РёРё Р°РІС‚РѕСЂР°
+	// Ввод фамилии автора
 	do {
-		puts("\nР’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ Р°РІС‚РѕСЂР° (РЅРµ Р±РѕР»РµРµ 20 СЃРёРјРІРѕР»РѕРІ):");
+		puts("\nВведите фамилию автора (не более 20 символов):");
 		fgets((*book).author_last_name, 22, stdin);
 	} while (strlen((*book).author_last_name) < 2);
 	(*book).author_last_name[strlen((*book).author_last_name) - 1] = '\0';
-	// Р’РІРѕРґ РёРЅРёС†РёР°Р»РѕРІ Р°РІС‚РѕСЂР°
+	// Ввод инициалов автора
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РёРЅРёС†РёР°Р»С‹ Р°РІС‚РѕСЂР° (РЅРµ Р±РѕР»РµРµ 4 СЃРёРјРІРѕР»РѕРІ):");
+		puts("Введите инициалы автора (не более 4 символов):");
 		fgets((*book).author_initials, 6, stdin);
 	} while (strlen((*book).author_initials) < 3);
 	(*book).author_initials[strlen((*book).author_initials) - 1] = '\0';
-	// Р’РІРѕРґ РЅР°Р·РІР°РЅРёСЏ РєРЅРёРіРё
+	// Ввод названия книги
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё (РЅРµ Р±РѕР»РµРµ 70 СЃРёРјРІРѕР»РѕРІ):");
+		puts("Введите название книги (не более 70 символов):");
 		fgets((*book).title, 72, stdin);
 	} while (strlen((*book).title) < 2);
 	(*book).title[strlen((*book).title) - 1] = '\0';
-	// Р’РІРѕРґ РЅР°Р·РІР°РЅРёСЏ Р¶Р°РЅСЂР°
+	// Ввод названия жанра
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р¶Р°РЅСЂР° (РЅРµ Р±РѕР»РµРµ 20 СЃРёРјРІРѕР»РѕРІ):");
-		fgets((*book).genre_name, 22, stdin);
+		puts("Введите название жанра (не более 40 символов):");
+		fgets((*book).genre_name, 42, stdin);
 	} while (strlen((*book).genre_name) < 2);
 	(*book).genre_name[strlen((*book).genre_name) - 1] = '\0';
-	// Р’РІРѕРґ РєРѕР»-РІР° СЃС‚СЂР°РЅРёС†
-	puts("Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЃС‚СЂР°РЅРёС† c 1 РїРѕ 30000:");
+	// Ввод кол-ва страниц
+	puts("Введите кол-во страниц c 1 по 30000:");
 	while ((scanf("%d", &((*book).page_count)) != 1) || ((*book).page_count < 1) || ((*book).page_count > 30000)) {
 		while (getchar() != '\n');
-		puts("РћС€РёР±РєР°. Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЃС‚СЂР°РЅРёС† c 1 РїРѕ 30000:");
+		puts("Ошибка. Введите кол-во страниц c 1 по 30000:");
 	}
 	while (getchar() != '\n');
-	// РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃРѕР·РґР°РЅРёРё РєРЅРёРіРё
-	printf("\nРљРЅРёРіР° \"%s\" Р±С‹Р»Р° СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°!\n", (*book).title);
+	// Сообщение о создании книги
+	printf("\nКнига \"%s\" была успешно создана!\n", (*book).title);
 }
-// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєРЅРёРіРµ
+// Функция вывода информации о книге
 void printBookInfo(Book book) {
-	puts("\nРРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРЅРёРіРµ:");
-	printf("Р¤Р°РјРёР»РёСЏ Р°РІС‚РѕСЂР°: %s\n", book.author_last_name);
-	printf("РРЅРёС†РёР°Р»С‹ Р°РІС‚РѕСЂР°: %s\n", book.author_initials);
-	printf("РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: %s\n", book.title);
-	printf("РќР°Р·РІР°РЅРёРµ Р¶Р°РЅСЂР°: %s\n", book.genre_name);
-	printf("РљРѕР»-РІРѕ СЃС‚СЂР°РЅРёС†: %d\n", book.page_count);
+	puts("\nИнформация о книге:");
+	printf("Фамилия автора: %s\n", book.author_last_name);
+	printf("Инициалы автора: %s\n", book.author_initials);
+	printf("Название книги: %s\n", book.title);
+	printf("Название жанра: %s\n", book.genre_name);
+	printf("Кол-во страниц: %d\n", book.page_count);
 }
-// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РєРЅРёРі РїРѕ РЅР°Р·РІР°РЅРёСЋ Рё Р°РІС‚РѕСЂСѓ
+// Функция поиска книг по названию и автору
 void findBooksByTitleAndAuthor(Book books[300], int book_count, char* book_title, char* author_last_name) {
 	Book found_books[300];
 	int j = 0;
 	char book_title_copy[72] = "", book_author_last_name_copy[22] = "";
-	for (int i = 0; i < book_count; i++) { // Р¦РёРєР» РїРѕРёСЃРєР° РЅСѓР¶РЅС‹С… РєРЅРёРі
-		// РЎРѕР·РґР°РЅРёРµ РєРѕРїРёР№ РїРѕР»РµР№ СЃС‚СЂСѓРєС‚СѓСЂС‹ РґР»СЏ РїРѕРёСЃРєР° (С‡С‚РѕР±С‹ РЅРµ РїРѕСЂС‚РёС‚СЊ РёС… РїРµСЂРІРѕРЅР°С‡Р°Р»СЊРЅС‹Р№ РІРёРґ С„-РµР№ _strlwr())
+	for (int i = 0; i < book_count; i++) { // Цикл поиска нужных книг
+		// Создание копий полей структуры для поиска (чтобы не портить их первоначальный вид ф-ей _strlwr())
 		strcpy(book_title_copy, books[i].title);
 		strcpy(book_author_last_name_copy, books[i].author_last_name);
-		// РЎСЂР°РІРЅРµРЅРёРµ Р·Р°РґР°РЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№ РїРѕР»РµР№ Рё РїРѕР»РµР№ РёР· РјР°СЃСЃРёРІР° РєРЅРёРі
+		// Сравнение заданных значений полей и полей из массива книг
 		if ((strcmp(_strlwr(book_title_copy), _strlwr(book_title)) == 0) && (strcmp(_strlwr(book_author_last_name_copy), _strlwr(author_last_name)) == 0)) {
-			found_books[j] = books[i]; // Р”РѕР±Р°РІР»РµРЅРёРµ РєРЅРёРіРё РІ РјР°СЃСЃРёРІ РЅР°Р№РґРµРЅРЅС‹С… РєРЅРёРі
+			found_books[j] = books[i]; // Добавление книги в массив найденных книг
 			++j;
 		}
 	}
-	// Р’С‹РІРѕРґ РЅР°Р№РґРµРЅРЅС‹С… РєРЅРёРі РµСЃР»Рё РѕРЅРё РµСЃС‚СЊ
+	// Вывод найденных книг если они есть
 	if (j) {
-		printf("\nРќР°Р№РґРµРЅРѕ %d РєРЅРёРі Р°РІС‚РѕСЂР° %s СЃ РЅР°Р·РІР°РЅРёРµРј \"%s\":\n", j, found_books[0].author_last_name, found_books[0].title);
+		printf("\nНайдено %d книг автора %s с названием \"%s\":\n", j, found_books[0].author_last_name, found_books[0].title);
 		for (int k = 0; k < j; k++) {
-			printf("\nРљРЅРёРіР° %d\n\n", (k + 1));
+			printf("\nКнига %d\n\n", (k + 1));
 			printBookInfo(found_books[k]);
 			printf("-------------------------\n");
 		}
 	}
-	// РРЅР°С‡Рµ РІС‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ РѕР± РёС… РѕС‚СЃСѓС‚СЃС‚РІРёРё
+	// Иначе вывод сообщения об их отсутствии
 	else {
-		puts("\nРќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!");
+		puts("\nНичего не найдено!");
 	}
 }
-// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РєРЅРёРі РїРѕ Р°РІС‚РѕСЂСѓ
+// Функция поиска книг по автору
 void findBooksByAuthor(Book books[300], int book_count, char* author_last_name) {
 	Book found_books[300];
 	int j = 0;
@@ -180,18 +180,18 @@ void findBooksByAuthor(Book books[300], int book_count, char* author_last_name) 
 		}
 	}
 	if (j) {
-		printf("\nРќР°Р№РґРµРЅРѕ %d РєРЅРёРі Р°РІС‚РѕСЂР° %s:\n", j, found_books[0].author_last_name);
+		printf("\nНайдено %d книг автора %s:\n", j, found_books[0].author_last_name);
 		for (int k = 0; k < j; k++) {
-			printf("РљРЅРёРіР° %d\n\n", (k + 1));
+			printf("Книга %d\n\n", (k + 1));
 			printBookInfo(found_books[k]);
 			printf("-------------------------\n");
 		}
 	}
 	else {
-		puts("\nРќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!");
+		puts("\nНичего не найдено!");
 	}
 }
-// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РєРЅРёРі РїРѕ Р¶Р°РЅСЂСѓ
+// Функция поиска книг по жанру
 void findBooksByGenre(Book books[300], int book_count, char* genre_name) {
 	Book found_books[300];
 	int j = 0;
@@ -204,64 +204,64 @@ void findBooksByGenre(Book books[300], int book_count, char* genre_name) {
 		}
 	}
 	if (j) {
-		printf("\nРќР°Р№РґРµРЅРѕ %d РєРЅРёРі Р¶Р°РЅСЂР° %s:\n", j, found_books[0].genre_name);
+		printf("\nНайдено %d книг жанра %s:\n", j, found_books[0].genre_name);
 		for (int k = 0; k < j; k++) {
-			printf("РљРЅРёРіР° %d\n\n", (k + 1));
+			printf("Книга %d\n\n", (k + 1));
 			printBookInfo(found_books[k]);
 			printf("-------------------------\n");
 		}
 	}
 	else {
-		puts("\nРќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!");
+		puts("\nНичего не найдено!");
 	}
 }
-// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р¶СѓСЂРЅР°Р»Р°
+// Функция создания журнала
 void createMagazine(Magazine* magazine) {
-	// Р’РІРѕРґ РЅР°Р·РІР°РЅРёСЏ РёР·РґР°С‚РµР»СЏ
+	// Ввод названия издателя
 	do {
-		puts("\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РёР·РґР°С‚РµР»СЏ (РЅРµ Р±РѕР»РµРµ 30 СЃРёРјРІРѕР»РѕРІ):");
+		puts("\nВведите название издателя (не более 30 символов):");
 		fgets((*magazine).publisher_name, 32, stdin);
 	} while (strlen((*magazine).publisher_name) < 2);
 	(*magazine).publisher_name[strlen((*magazine).publisher_name) - 1] = '\0';
-	// Р’РІРѕРґ РЅР°Р·РІР°РЅРёСЏ Р¶СѓСЂРЅР°Р»Р°
+	// Ввод названия журнала
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р¶СѓСЂРЅР°Р»Р° (РЅРµ Р±РѕР»РµРµ 70 СЃРёРјРІРѕР»РѕРІ):");
+		puts("Введите название журнала (не более 70 символов):");
 		fgets((*magazine).title, 72, stdin);
 	} while (strlen((*magazine).title) < 2);
 	(*magazine).title[strlen((*magazine).title) - 1] = '\0';
-	// Р’РІРѕРґ РїРµСЂРёРѕРґРёС‡РЅРѕСЃС‚Рё
+	// Ввод периодичности
 	do {
-		puts("Р’РІРµРґРёС‚Рµ РїРµСЂРёРѕРґРёС‡РЅРѕСЃС‚СЊ (РЅРµ Р±РѕР»РµРµ 30 СЃРёРјРІРѕР»РѕРІ):");
+		puts("Введите периодичность (не более 30 символов):");
 		fgets((*magazine).frequency, 32, stdin);
 	} while (strlen((*magazine).frequency) < 2);
 	(*magazine).frequency[strlen((*magazine).frequency) - 1] = '\0';
-	// Р’РІРѕРґ РєРѕР»-РІР° СЃС‚СЂР°РЅРёС†
-	puts("Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЃС‚СЂР°РЅРёС† c 1 РїРѕ 160:");
+	// Ввод кол-ва страниц
+	puts("Введите кол-во страниц c 1 по 160:");
 	while ((scanf("%d", &((*magazine).page_count)) != 1) || ((*magazine).page_count < 1) || ((*magazine).page_count > 160)) {
 		while (getchar() != '\n');
-		puts("РћС€РёР±РєР°. Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЃС‚СЂР°РЅРёС† c 1 РїРѕ 160:");
+		puts("Ошибка. Введите кол-во страниц c 1 по 160:");
 	}
 	while (getchar() != '\n');
-	// Р’РІРѕРґ С†РµРЅС‹
-	puts("Р’РІРµРґРёС‚Рµ С†РµРЅСѓ c 0 РїРѕ 30000:");
+	// Ввод цены
+	puts("Введите цену c 0 по 30000:");
 	while ((scanf("%f", &((*magazine).price)) != 1) || ((*magazine).price < 0.0f) || ((*magazine).price > 30000.0f)) {
 		while (getchar() != '\n');
-		puts("РћС€РёР±РєР°. Р’РІРµРґРёС‚Рµ С†РµРЅСѓ c 0 РїРѕ 30000:");
+		puts("Ошибка. Введите цену c 0 по 30000:");
 	}
 	while (getchar() != '\n');
-	// РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃРѕР·РґР°РЅРёРё Р¶СѓСЂРЅР°Р»Р°
-	printf("\nР–СѓСЂРЅР°Р» \"%s\" Р±С‹Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!\n", (*magazine).title);
+	// Сообщение о создании журнала
+	printf("\nЖурнал \"%s\" был успешно создан!\n", (*magazine).title);
 }
-// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р¶СѓСЂРЅР°Р»Рµ
+// Функция вывода информации о журнале
 void printMagazineInfo(Magazine magazine) {
-	puts("\nРРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р¶СѓСЂРЅР°Р»Рµ:");
-	printf("РР·РґР°С‚РµР»СЊ: %s\n", magazine.publisher_name);
-	printf("РќР°Р·РІР°РЅРёРµ Р¶СѓСЂРЅР°Р»Р°: %s\n", magazine.title);
-	printf("РџРµСЂРёРѕРґРёС‡РЅРѕСЃС‚СЊ: %s\n", magazine.frequency);
-	printf("РљРѕР»-РІРѕ СЃС‚СЂР°РЅРёС†: %d\n", magazine.page_count);
-	printf("Р¦РµРЅР°: %.2f\n", magazine.price);
+	puts("\nИнформация о журнале:");
+	printf("Издатель: %s\n", magazine.publisher_name);
+	printf("Название журнала: %s\n", magazine.title);
+	printf("Периодичность: %s\n", magazine.frequency);
+	printf("Кол-во страниц: %d\n", magazine.page_count);
+	printf("Цена: %.2f\n", magazine.price);
 }
-// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° Р¶СѓСЂРЅР°Р»РѕРІ РїРѕ РёР·РґР°С‚РµР»СЋ
+// Функция поиска журналов по издателю
 void findMagazinesByPublisher(Magazine magazines[300], int magazine_count, char* publisher_name) {
 	Magazine found_magazines[300];
 	int j = 0;
@@ -274,14 +274,14 @@ void findMagazinesByPublisher(Magazine magazines[300], int magazine_count, char*
 		}
 	}
 	if (j) {
-		printf("\nРќР°Р№РґРµРЅРѕ %d Р¶СѓСЂРЅР°Р»РѕРІ РёР·РґР°С‚РµР»СЏ %s:\n", j, found_magazines[0].publisher_name);
+		printf("\nНайдено %d журналов издателя %s:\n", j, found_magazines[0].publisher_name);
 		for (int k = 0; k < j; k++) {
-			printf("Р–СѓСЂРЅР°Р» %d\n\n", (k + 1));
+			printf("Журнал %d\n\n", (k + 1));
 			printMagazineInfo(found_magazines[k]);
 			printf("-------------------------\n");
 		}
 	}
 	else {
-		puts("\nРќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!");
+		puts("\nНичего не найдено!");
 	}
 }
