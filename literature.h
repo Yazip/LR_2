@@ -1,23 +1,23 @@
 #pragma once
-// Структура автор
+// РЎС‚СЂСѓРєС‚СѓСЂР° Р°РІС‚РѕСЂ
 typedef struct {
 	char last_name[22];
 	char initials[6];
 	char biography[302];
 } Author;
-// Структура жанр
+// РЎС‚СЂСѓРєС‚СѓСЂР° Р¶Р°РЅСЂ
 typedef struct {
 	char name[42];
 	char description[302];
 } Genre;
-// Структура издатель
+// РЎС‚СЂСѓРєС‚СѓСЂР° РёР·РґР°С‚РµР»СЊ
 typedef struct {
 	char name[32];
 	char address[102];
 	char phone_num[22];
 	char email[42];
 } Publisher;
-// Структура книга
+// РЎС‚СЂСѓРєС‚СѓСЂР° РєРЅРёРіР°
 typedef struct {
 	char author_last_name[22];
 	char author_initials[6];
@@ -25,7 +25,7 @@ typedef struct {
 	char genre_name[42];
 	int page_count;
 } Book;
-// Структура журнал
+// РЎС‚СЂСѓРєС‚СѓСЂР° Р¶СѓСЂРЅР°Р»
 typedef struct {
 	char publisher_name[32];
 	char title[72];
@@ -33,31 +33,31 @@ typedef struct {
 	int page_count;
 	float price;
 } Magazine;
-// Функция создания автора
+// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р°РІС‚РѕСЂР°
 void createAuthor(Author* author);
-// Функция вывода информации об авторе
+// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё РѕР± Р°РІС‚РѕСЂРµ
 void printAuthorInfo(Author author);
-// Функция создания жанра
+// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р¶Р°РЅСЂР°
 void createGenre(Genre* genre);
-// Функция вывода информации о жанре
+// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р¶Р°РЅСЂРµ
 void printGenreInfo(Genre genre);
-// Функция создания издателя
+// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РёР·РґР°С‚РµР»СЏ
 void createPublisher(Publisher* publisher);
-// Функция вывода информации об издателе
+// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё РѕР± РёР·РґР°С‚РµР»Рµ
 void printPublisherInfo(Publisher publisher);
-// Функция создания книги
+// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РєРЅРёРіРё
 void createBook(Book* book);
-// Функция вывода информации о книге
+// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєРЅРёРіРµ
 void printBookInfo(Book book);
-// Функция поиска книг по названию и автору
+// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РєРЅРёРі РїРѕ РЅР°Р·РІР°РЅРёСЋ Рё Р°РІС‚РѕСЂСѓ
 void findBooksByTitleAndAuthor(Book books[300], int book_count, char* book_title, char* author_last_name);
-// Функция поиска книг по автору
+// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РєРЅРёРі РїРѕ Р°РІС‚РѕСЂСѓ
 void findBooksByAuthor(Book books[300], int book_count, char* author_last_name);
-// Функция поиска книг по жанру
+// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РєРЅРёРі РїРѕ Р¶Р°РЅСЂСѓ
 void findBooksByGenre(Book books[300], int book_count, char* genre_name);
-// Функция создания журнала
+// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р¶СѓСЂРЅР°Р»Р°
 void createMagazine(Magazine* magazine);
-// Функция вывода информации о журнале
+// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р¶СѓСЂРЅР°Р»Рµ
 void printMagazineInfo(Magazine magazine);
-// Функция поиска журналов по издателю
+// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° Р¶СѓСЂРЅР°Р»РѕРІ РїРѕ РёР·РґР°С‚РµР»СЋ
 void findMagazinesByPublisher(Magazine magazines[300], int magazine_count, char* publisher_name);
