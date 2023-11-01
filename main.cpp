@@ -7,54 +7,55 @@ int main() {
 	setlocale(0, "");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	Author author_static = {}, * author_dynamic = {};
-	Genre genre_static = {}, * genre_dynamic = {};
-	Publisher publisher_static = {}, * publisher_dynamic = {};
+	Author author_static = {}, * author_dynamic = (Author*)malloc(sizeof(Author));
+	Genre genre_static = {}, * genre_dynamic = (Genre*)malloc(sizeof(Genre));
+	Publisher publisher_static = {}, * publisher_dynamic = (Publisher*)malloc(sizeof(Publisher));
 	Book books_static[4], * books_dynamic = (Book*)calloc(4, sizeof(Book));
 	Magazine magazines_static[4], * magazines_dynamic = (Magazine*)calloc(4, sizeof(Magazine));
-	char title[72] = "Война и мир", author_last_name[22] = "Толстой", genre_name[22] = "Роман", publisher_name[32] = "АСТ";
-	// Работа со статической структурой автора
+	char title1[72] = "Р’РѕР№РЅР° Рё РјРёСЂ", author_last_name1[22] = "РўРѕР»СЃС‚РѕР№", genre_name1[42] = "Р РѕРјР°РЅ", publisher_name1[32] = "РђРЎРў";
+	char title2[72] = "РњС†С‹СЂРё", author_last_name2[22] = "Р›РµСЂРјРѕРЅС‚РѕРІ", genre_name2[42] = "Р”СЂР°РјР°", publisher_name2[32] = "Р¤СЌС€РЅ РџСЂРµСЃСЃ";
+	// Р Р°Р±РѕС‚Р° СЃРѕ СЃС‚Р°С‚РёС‡РµСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ Р°РІС‚РѕСЂР°
 	createAuthor(&author_static);
 	printAuthorInfo(author_static);
-	// Работа с динамической структурой автора
+	// Р Р°Р±РѕС‚Р° СЃ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ Р°РІС‚РѕСЂР°
 	createAuthor(author_dynamic);
 	printAuthorInfo(*author_dynamic);
-	// Работа со статической структурой жанра
+	// Р Р°Р±РѕС‚Р° СЃРѕ СЃС‚Р°С‚РёС‡РµСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ Р¶Р°РЅСЂР°
 	createGenre(&genre_static);
 	printGenreInfo(genre_static);
-	// Работа с динамической структурой жанра
+	// Р Р°Р±РѕС‚Р° СЃ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ Р¶Р°РЅСЂР°
 	createGenre(genre_dynamic);
 	printGenreInfo(*genre_dynamic);
-	// Работа со статической структурой издателя
+	// Р Р°Р±РѕС‚Р° СЃРѕ СЃС‚Р°С‚РёС‡РµСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ РёР·РґР°С‚РµР»СЏ
 	createPublisher(&publisher_static);
 	printPublisherInfo(publisher_static);
-	// Работа с динамической структурой издателя
+	// Р Р°Р±РѕС‚Р° СЃ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ РёР·РґР°С‚РµР»СЏ
 	createPublisher(publisher_dynamic);
 	printPublisherInfo(*publisher_dynamic);
-	// Работа со статическим массивом структур книг
+	// Р Р°Р±РѕС‚Р° СЃРѕ СЃС‚Р°С‚РёС‡РµСЃРєРёРј РјР°СЃСЃРёРІРѕРј СЃС‚СЂСѓРєС‚СѓСЂ РєРЅРёРі
 	for (int i = 0; i < 4; i++) {
 		createBook(&(books_static[i]));
 	}
-	findBooksByTitleAndAuthor(books_static, 4, title, author_last_name);
-	findBooksByAuthor(books_static, 4, author_last_name);
-	findBooksByGenre(books_static, 4, genre_name);
-	// Работа с динамическим массивом структур книг
+	findBooksByTitleAndAuthor(books_static, 4, title1, author_last_name1);
+	findBooksByAuthor(books_static, 4, author_last_name1);
+	findBooksByGenre(books_static, 4, genre_name1);
+	// Р Р°Р±РѕС‚Р° СЃ РґРёРЅР°РјРёС‡РµСЃРєРёРј РјР°СЃСЃРёРІРѕРј СЃС‚СЂСѓРєС‚СѓСЂ РєРЅРёРі
 	for (int i = 0; i < 4; i++) {
 		createBook(books_dynamic + i);
 	}
-	findBooksByTitleAndAuthor(books_dynamic, 4, title, author_last_name);
-	findBooksByAuthor(books_dynamic, 4, author_last_name);
-	findBooksByGenre(books_dynamic, 4, genre_name);
-	// Работа со статическим массивом структур журналов
+	findBooksByTitleAndAuthor(books_dynamic, 4, title2, author_last_name2);
+	findBooksByAuthor(books_dynamic, 4, author_last_name2);
+	findBooksByGenre(books_dynamic, 4, genre_name2);
+	// Р Р°Р±РѕС‚Р° СЃРѕ СЃС‚Р°С‚РёС‡РµСЃРєРёРј РјР°СЃСЃРёРІРѕРј СЃС‚СЂСѓРєС‚СѓСЂ Р¶СѓСЂРЅР°Р»РѕРІ
 	for (int i = 0; i < 4; i++) {
 		createMagazine(&(magazines_static[i]));
 	}
-	findMagazinesByPublisher(magazines_static, 4, publisher_name);
-	// Работа с динамическим массивом структур журналов
+	findMagazinesByPublisher(magazines_static, 4, publisher_name1);
+	// Р Р°Р±РѕС‚Р° СЃ РґРёРЅР°РјРёС‡РµСЃРєРёРј РјР°СЃСЃРёРІРѕРј СЃС‚СЂСѓРєС‚СѓСЂ Р¶СѓСЂРЅР°Р»РѕРІ
 	for (int i = 0; i < 4; i++) {
 		createMagazine(magazines_dynamic + i);
 	}
-	findMagazinesByPublisher(magazines_dynamic, 4, publisher_name);
+	findMagazinesByPublisher(magazines_dynamic, 4, publisher_name2);
 	_getch();
 	return 0;
 }

@@ -7,13 +7,13 @@ typedef struct {
 } Author;
 // Структура жанр
 typedef struct {
-	char name[22];
+	char name[42];
 	char description[302];
 } Genre;
 // Структура издатель
 typedef struct {
 	char name[32];
-	char address[52];
+	char address[102];
 	char phone_num[22];
 	char email[42];
 } Publisher;
@@ -22,7 +22,7 @@ typedef struct {
 	char author_last_name[22];
 	char author_initials[6];
 	char title[72];
-	char genre_name[22];
+	char genre_name[42];
 	int page_count;
 } Book;
 // Структура журнал
