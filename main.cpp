@@ -1,66 +1,66 @@
 #include "literature.h"
 #include <iostream>
+#include <string>
 #include <conio.h>
-#include <malloc.h>
 #include <Windows.h>
+using namespace std;
 int main() {
 	setlocale(0, "");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	Author author_static = {}, * author_dynamic = (Author*)malloc(sizeof(Author));
-	Genre genre_static = {}, * genre_dynamic = (Genre*)malloc(sizeof(Genre));
-	Publisher publisher_static = {}, * publisher_dynamic = (Publisher*)malloc(sizeof(Publisher));
-	Book books_static[4], * books_dynamic = (Book*)calloc(4, sizeof(Book));
-	Magazine magazines_static[4], * magazines_dynamic = (Magazine*)calloc(4, sizeof(Magazine));
-	char title1[72] = "Война и мир", author_last_name1[22] = "Толстой", genre_name1[42] = "Роман", publisher_name1[32] = "АСТ";
-	char title2[72] = "Мцыри", author_last_name2[22] = "Лермонтов", genre_name2[42] = "Драма", publisher_name2[32] = "Фэшн Пресс";
-	// Работа со статической структурой автора
-	createAuthor(&author_static);
-	printAuthorInfo(author_static);
-	// Работа с динамической структурой автора
-	createAuthor(author_dynamic);
-	printAuthorInfo(*author_dynamic);
-	// Работа со статической структурой жанра
-	createGenre(&genre_static);
-	printGenreInfo(genre_static);
-	// Работа с динамической структурой жанра
-	createGenre(genre_dynamic);
-	printGenreInfo(*genre_dynamic);
-	// Работа со статической структурой издателя
-	createPublisher(&publisher_static);
-	printPublisherInfo(publisher_static);
-	// Работа с динамической структурой издателя
-	createPublisher(publisher_dynamic);
-	printPublisherInfo(*publisher_dynamic);
-	// Работа со статическим массивом структур книг
+	Author author_static, * author_dynamic = new Author("Шолохов", "М.А.", "Родился 24 мая 1905 года на хуторе Кружилин в станице Вёшенской Российской империи.");
+	Genre genre_static, * genre_dynamic = new Genre("Драма", "Текст в драме представлен в виде реплик персонажей и авторских ремарок. Как правило, он разбит на действия и явления.");
+	Publisher publisher_static, * publisher_dynamic = new Publisher("МИФ", "Москва, м. Пушкинская, Тверская, Чеховская, Большой Козихинский пер., д. 7, стр. 2, 2-й этаж, оф. 24", "+7 (499) 110-19-42", "support@m-i-f.ru");
+	Book books_static[4], * books_dynamic = new Book[4];
+	Magazine magazines_static[4], * magazines_dynamic = new Magazine[4];
+	string title1 = "Война и мир", author_last_name1 = "Толстой", genre_name1 = "Роман", publisher_name1 = "АСТ";
+	string title2 = "Мцыри", author_last_name2 = "Лермонтов", genre_name2 = "Драма", publisher_name2 = "Фэшн Пресс";
+	// Работа со статическим объектом автора
+	author_static.enterAuthorData();
+	author_static.getAuthorData();
+	// Работа с динамическим объектом автора
+	author_dynamic->getAuthorData();
+	// Работа со статическим объектом жанра
+	genre_static.setGenreData("Повесть", "Прозаический жанр, занимающий по объёму текста промежуточное место между романом и рассказом, тяготеющий к хроникальному сюжету, воспроизводящему естественное течение жизни.");
+	genre_static.getGenreData();
+	// Работа с динамическим объектом жанра
+	genre_dynamic->getGenreData();
+	// Работа со статическим объектом издателя
+	publisher_static.enterPublisherData();
+	publisher_static.getPublisherData();
+	// Работа с динамическим объектом издателя
+	publisher_dynamic->getPublisherData();
+	// Работа со статическим массивом объектов книг
 	for (int i = 0; i < 4; i++) {
-		createBook(&(books_static[i]));
+		books_static[i].enterBookData();
 	}
 	findBooksByTitleAndAuthor(books_static, 4, title1, author_last_name1);
 	findBooksByAuthor(books_static, 4, author_last_name1);
 	findBooksByGenre(books_static, 4, genre_name1);
-	// Работа с динамическим массивом структур книг
+	// Работа с динамическим массивом объектов книг
 	for (int i = 0; i < 4; i++) {
-		createBook(books_dynamic + i);
+		(books_dynamic + i)->enterBookData();
 	}
 	findBooksByTitleAndAuthor(books_dynamic, 4, title2, author_last_name2);
 	findBooksByAuthor(books_dynamic, 4, author_last_name2);
 	findBooksByGenre(books_dynamic, 4, genre_name2);
-	// Работа со статическим массивом структур журналов
+	// Работа со статическим массивом объектов журналов
 	for (int i = 0; i < 4; i++) {
-		createMagazine(&(magazines_static[i]));
+		magazines_static[i].enterMagazineData();
 	}
 	findMagazinesByPublisher(magazines_static, 4, publisher_name1);
-	// Работа с динамическим массивом структур журналов
+	// Работа с динамическим массивом объектов журналов
 	for (int i = 0; i < 4; i++) {
-		createMagazine(magazines_dynamic + i);
+		(magazines_dynamic + i)->enterMagazineData();
 	}
 	findMagazinesByPublisher(magazines_dynamic, 4, publisher_name2);
 	_getch();
-	free(author_dynamic);
-	free(genre_dynamic);
-	free(publisher_dynamic);
-	free(books_dynamic);
-	free(magazines_dynamic);
+	delete author_dynamic;
+	delete genre_dynamic;
+	delete publisher_dynamic;
+	delete[] books_static;
+	delete[] books_dynamic;
+	delete[] magazines_static;
+	delete[] magazines_dynamic;
 	return 0;
 }
